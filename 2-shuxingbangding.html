@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<a v-bind:href="url">百度</a>
+	 	<!-- 改变属性 -->
+	</div>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				url:"http://baidu.com"
+				// 属性名 
+			}
+		})
+	</script>
+</body>
+</html>

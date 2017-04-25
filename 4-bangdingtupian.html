@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="box">
+	<img v-on:click="change" v-bind:src="url" alt="">
+	<!-- 想让它干什么就 都写进去 -->
+	<!-- <button >变</button> -->
+</div>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el:'#box',
+			data:{
+				url:"猫猫.jpg"
+			},
+			methods:{
+				change:function(){
+					this.url="菊花.jpg";
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{
+			list-style: none;
+			width: 100px;
+			height: 20px;
+			float:left; 
+			border:1px solid blue;
+			cursor: pointer;
+
+		}
+		img{
+			width: 500px;
+			height: 500px;
+		}
+		.bgc{
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img v-bind:src="url" alt="">
+		<ul>
+			<li v-on:click="change(ind)" v-bind:class="val.bg" v-for="(val,ind) in images">{{ind+1}}</li>
+		</ul>
+	</div>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el:"#box",
+			data:{
+				url:"猫猫.jpg",
+				images:[
+					{url:"猫猫.jpg",
+					bg:{bgc:true}
+						},
+					{url:"狗狗.jpg",
+					bg:{bgc:false}
+						},
+					{url:"帅.jpg",
+					bg:{bgc:false}
+						},
+					{url:"兔子.jpg",
+					bg:{bgc:false}
+						},
+					{url:"菊花.jpg",
+					bg:{bgc:false}
+						},
+				],
+				bgNow:0
+			},
+			methods:{
+				change:function(ind){
+				
+					this.images[this.bgNow].bg.bgc = false;
+					this.images[ind].bg.bgc = true;
+					this.bgNow = ind;
+
+					this.url = this.images[ind].url;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

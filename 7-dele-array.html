@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<input type="text" v-model="message">
+		<button v-on:click="add">添加</button>
+		<ul>
+			<li v-for="(val,index) in array">
+			<span>{{val}}</span>
+			<button v-on:click="rm(index)">删除</button>
+			
+			</li>
+		</ul>
+	</div>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el:"#box",
+			data:{
+				array:[],
+				message:""
+			},
+			methods:{
+				add:function(){
+					this.array.push(this.message),
+					this.message=""
+				},
+				rm:function(ind){
+					 this.array.splice(ind,1)
+				}
+			}
+		})
+	</script>
+</body>
+</html>

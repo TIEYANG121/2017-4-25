@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.list li{
+			float:left;
+			list-style: none;
+			border:1px solid red;
+			width:30px;
+			height:30px;
+			line-height: 30px;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.bg{
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul class="list">
+			<li v-on:click="changeBg(ind)" v-bind:class="val" v-for="(val,ind) in bglist">{{ind+1}}</li>
+			<!-- 绑定事件   绑定属性     遍历数组 -->
+		</ul>
+	</div>
+
+	<script src="vue.js"></script>
+	<script>
+
+		new Vue({
+			el:'#box',
+			data:{
+				bglist:[
+					{bg:true},
+					{bg:false},
+					{bg:false},
+					{bg:false},
+					{bg:false}
+				],
+				bgNow:0
+				// 记录当前的状态
+			},
+			methods:{
+				changeBg:function(ind){
+					this.bglist[ind].bg = true;
+					this.bglist[this.bgNow].bg = false;
+					this.bgNow = ind;
+				}
+			}
+		})
+
+	</script>
+</body>
+</html>
